@@ -3,7 +3,7 @@
     package="com.latifur.mapbox">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -21,9 +21,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".MyLocation"
+            android:exported="false" />
+        <activity
+            android:name=".DrawGeoJsonLineActivity"
             android:exported="false" />
     </application>
 

@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.Toast
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.mapbox.geojson.Point.fromLngLat
 import com.mapbox.maps.CameraOptions
@@ -28,6 +29,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         mapView = findViewById(R.id.mapView)
         val btnMyLocation: FloatingActionButton = findViewById(R.id.btnMyLocation)
+        val btnDrawLine: ExtendedFloatingActionButton = findViewById(R.id.btnDrawLine)
 
         mapView?.getMapboxMap()?.loadStyleUri(Style.MAPBOX_STREETS){
             animateCameraDelayed()
@@ -65,6 +67,10 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
             }
+        }
+        btnDrawLine.setOnClickListener {
+            val intent = Intent(applicationContext, DrawGeoJsonLineActivity::class.java)
+            startActivity(intent)
         }
 
     }
